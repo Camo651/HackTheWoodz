@@ -7,7 +7,7 @@ public class CameraControl : MonoBehaviour
 
 
 	public Camera mainCam;
-	float lookSensitivity = 2;
+	float lookSensitivity = 0.02
 
 	void Awake()
 	{
@@ -28,11 +28,12 @@ public class CameraControl : MonoBehaviour
 	public Tile RaycastTile()
 	{
 		GameObject hit = Raycast();
-		return hit.GetComponentInParent<Tile>();
+		return hit!=null?hit.GetComponentInParent<Tile>():null;
 	}
 	void FixedUpdate() {
 		float shift = Input.GetKey(KeyCode.LeftShift) ? 1 : 0;
 		float movementSpeed = 1;
+		movementSpeed = 10;
 		if(Input.GetKeyDown(KeyCode.LeftShift))
         {
 			movementSpeed = 20;
@@ -67,7 +68,7 @@ public class CameraControl : MonoBehaviour
 			float rotX = transform.localEulerAngles.y + Input.GetAxisRaw("Mouse X") * lookSensitivity * Time.fixedDeltaTime;
 			float rotY = transform.localEulerAngles.x - Input.GetAxisRaw("Mouse Y") * lookSensitivity * Time.fixedDeltaTime;
 			transform.localEulerAngles += new Vector3(rotY, rotX, 0f);
-			transform.localEulerAngles = new Vector3(Mathf.Clamp(transform.localEulerAngles.x, -85, 85), transform.localEulerAngles.y, transform.localEulerAngles.z);
+			transform.localEulerAngles = new Vector3(Mathf.Clamp(transform.localEulerAngles.x, -85f, 85f), transform.localEulerAngles.y, transform.localEulerAngles.z);
 		}
     }
 }
