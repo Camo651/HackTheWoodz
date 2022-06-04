@@ -41,7 +41,7 @@ public class CameraControl : MonoBehaviour
 		{
 			transform.position += Vector3.up * Time.deltaTime * movementSpeed;
 		}
-		if (Input.GetKey(KeyCode.Q))
+		if (Input.GetKey(KeyCode.Q) || Input.GetKey(KeyCode.Space)
 		{
 			transform.position += Vector3.up * Time.deltaTime * -movementSpeed;
 		}
