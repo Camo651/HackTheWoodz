@@ -5,4 +5,12 @@ using UnityEngine;
 public class Element : MonoBehaviour
 {
 	public Tile parentTile;
+	public ElementType elementType;
+	public enum ElementType
+	{
+		Building,
+		Field,
+		Path,
+		Waterway
+	};
 }
