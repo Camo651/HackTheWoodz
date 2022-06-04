@@ -1,0 +1,7 @@
+ToDo:
+- Camera Control Script
+- Tilemap system
+- Tile class
+- Tiles can be placed and destroyed
+- Tiles can have elements put on them
+- Element class
