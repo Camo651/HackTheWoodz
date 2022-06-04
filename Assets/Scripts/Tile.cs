@@ -16,5 +16,32 @@ public class Tile : MonoBehaviour
 		Basic
 	}
 
+	public void GenerateElementsOnTile(List<List<Element.ElementType>> e)
+	{
+		for (int x = 0; x < tileMap.tileDimensions.x/tileMap.elementDimensions.x; x++)
+		{
+			childedElements.Add(new List<Element>());
+			for (int z = 0; z < tileMap.tileDimensions.z / tileMap.elementDimensions.z; z++)
+			{
+				if(e[x][z] != Element.ElementType.None)
+				{
+					Element elm = Instantiate(tileMap.elementPrefabs[0], transform.GetChild(0)).GetComponent<Element>();
+					elm.transform.localPosition = new Vector3(x * tileMap.elementDimensions.x, 0, -z * tileMap.elementDimensions.z);
+					childedElements[x].Add(elm);
+				}
+				else
+				{
+					childedElements[x].Add(null);
+				}
+			}
+		}
+	}
 
+	public void ClearElementsOnTile()
+	{
+		for (int i = 0; i < transform.GetChild(0).childCount; i++)
+		{
+			Destroy(transform.GetChild(0).GetChild(i).gameObject);
+		}
+	}
 }

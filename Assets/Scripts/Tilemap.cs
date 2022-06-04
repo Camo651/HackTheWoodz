@@ -8,6 +8,7 @@ public class Tilemap : MonoBehaviour
 	public GameObject tilePrefab, ghostTilePrefab;
 
 	public Vector3 tileDimensions;
+	public Vector3 elementDimensions;
 
 	public List<GameObject> elementPrefabs;
 
@@ -47,6 +48,11 @@ public class Tilemap : MonoBehaviour
 			{
 				CreateTile(Tile.TileType.Ghost, (tile.tilePosition + offset*tileDimensions.x), false, null);
 			}
+		}
+
+		if (elements != null)
+		{
+			tile.GenerateElementsOnTile(elements);
 		}
 
 		return tile;
