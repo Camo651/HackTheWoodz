@@ -5,11 +5,13 @@ using UnityEngine;
 public class Tilemap : MonoBehaviour
 {
 	public Dictionary<Vector3, Tile> coordinateMap = new Dictionary<Vector3, Tile>();
+	public Dictionary<Vector3, Element> elementMap = new Dictionary<Vector3, Element>();
 	public GameObject tilePrefab, ghostTilePrefab;
 
 	public Vector3 tileDimensions;
+	public Vector3 elementDimensions;
 
-	public List<GameObject> elementPrefabs;
+	public List<ElementPrefab> elementPrefabs;
 
 	public Tile GetTileInMap(Vector3 pos)
 	{
@@ -47,6 +49,12 @@ public class Tilemap : MonoBehaviour
 			{
 				CreateTile(Tile.TileType.Ghost, (tile.tilePosition + offset*tileDimensions.x), false, null);
 			}
+			CreateTile(Tile.TileType.Ghost, (tile.tilePosition + Vector3.up * tileDimensions.y), false, null);
+		}
+
+		if (elements != null)
+		{
+			tile.GenerateElementsOnTile(elements, true);
 		}
 
 		return tile;
@@ -79,5 +87,16 @@ public class Tilemap : MonoBehaviour
 	public Tile GetUpperNeighbor(Tile tile)
 	{
 		return GetTileInMap(tile.tilePosition + (Vector3.up * tileDimensions.y));
+	}
+
+	public List<Element> GetNeighboringElements(Vector3 pos)
+	{
+		List<Element> n = new List<Element>();
+		foreach(Vector3 o in offsets)
+		{
+			n.Add(elementMap.ContainsKey(pos + (o * elementDimensions.x)) ? elementMap[pos + (o * elementDimensions.x)] : null);
+		}
+		n.Add(elementMap.ContainsKey(pos + (Vector3.up * elementDimensions.x)) ? elementMap[pos + (Vector3.up * elementDimensions.x)] : null);
+		return n;
 	}
 }

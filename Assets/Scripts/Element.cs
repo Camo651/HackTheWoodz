@@ -12,6 +12,5 @@ public class Element : MonoBehaviour
 		Building,
 		Field,
 		Path,
-		Waterway
 	};
 }

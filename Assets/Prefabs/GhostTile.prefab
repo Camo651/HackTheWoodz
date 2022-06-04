@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1098265914202023904}
   - component: {fileID: 1098265914202023935}
   - component: {fileID: 1098265914202023934}
-  - component: {fileID: 1098265914202023933}
+  - component: {fileID: 4248816383002555488}
   m_Layer: 0
   m_Name: VoxelBounds
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098265914202023931}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 5}
+  m_LocalPosition: {x: -6, y: 0, z: 6}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1098265914388593579}
@@ -162,54 +162,54 @@ MonoBehaviour:
   m_SharedTextures: []
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 10, y: 0, z: 0}
+  - {x: 12, y: 0, z: 0}
   - {x: 0, y: 10, z: 0}
-  - {x: 10, y: 10, z: 0}
-  - {x: 10, y: 0, z: 0}
-  - {x: 10, y: 0, z: -10}
-  - {x: 10, y: 10, z: 0}
-  - {x: 10, y: 10, z: -10}
-  - {x: 10, y: 0, z: -10}
-  - {x: 0, y: 0, z: -10}
-  - {x: 10, y: 10, z: -10}
-  - {x: 0, y: 10, z: -10}
-  - {x: 0, y: 0, z: -10}
+  - {x: 12, y: 10, z: 0}
+  - {x: 12, y: 0, z: 0}
+  - {x: 12, y: 0, z: -12}
+  - {x: 12, y: 10, z: 0}
+  - {x: 12, y: 10, z: -12}
+  - {x: 12, y: 0, z: -12}
+  - {x: 0, y: 0, z: -12}
+  - {x: 12, y: 10, z: -12}
+  - {x: 0, y: 10, z: -12}
+  - {x: 0, y: 0, z: -12}
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 10, z: -10}
+  - {x: 0, y: 10, z: -12}
   - {x: 0, y: 10, z: 0}
   - {x: 0, y: 10, z: 0}
-  - {x: 10, y: 10, z: 0}
-  - {x: 0, y: 10, z: -10}
-  - {x: 10, y: 10, z: -10}
-  - {x: 0, y: 0, z: -10}
-  - {x: 10, y: 0, z: -10}
+  - {x: 12, y: 10, z: 0}
+  - {x: 0, y: 10, z: -12}
+  - {x: 12, y: 10, z: -12}
+  - {x: 0, y: 0, z: -12}
+  - {x: 12, y: 0, z: -12}
   - {x: 0, y: 0, z: 0}
-  - {x: 10, y: 0, z: 0}
+  - {x: 12, y: 0, z: 0}
   m_Textures0:
   - {x: 0, y: 0}
-  - {x: -10, y: 0}
+  - {x: -12, y: 0}
   - {x: 0, y: 10}
-  - {x: -10, y: 10}
+  - {x: -12, y: 10}
   - {x: 0, y: 0}
-  - {x: -10, y: 0}
+  - {x: -12, y: 0}
   - {x: 0, y: 10}
-  - {x: -10, y: 10}
-  - {x: 10, y: 0}
+  - {x: -12, y: 10}
+  - {x: 12, y: 0}
   - {x: 0, y: 0}
-  - {x: 10, y: 10}
+  - {x: 12, y: 10}
   - {x: 0, y: 10}
-  - {x: 10, y: 0}
+  - {x: 12, y: 0}
   - {x: 0, y: 0}
-  - {x: 10, y: 10}
+  - {x: 12, y: 10}
   - {x: 0, y: 10}
   - {x: 0, y: 0}
-  - {x: 10, y: 0}
-  - {x: 0, y: -10}
-  - {x: 10, y: -10}
-  - {x: 0, y: -10}
-  - {x: -10, y: -10}
+  - {x: 12, y: 0}
+  - {x: 0, y: -12}
+  - {x: 12, y: -12}
+  - {x: 0, y: -12}
+  - {x: -12, y: -12}
   - {x: 0, y: 0}
-  - {x: -10, y: 0}
+  - {x: -12, y: 0}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -299,7 +299,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098265914202023931}
   m_Mesh: {fileID: 0}
---- !u!65 &1098265914202023933
+--- !u!65 &4248816383002555488
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -310,8 +310,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 5, y: 5, z: -5}
+  m_Size: {x: 12, y: 10, z: 12}
+  m_Center: {x: 6, y: 5, z: -6}
 --- !u!1 &1098265914388593577
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +357,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileMap: {fileID: 0}
-  childedElements: []
   tilePosition: {x: 0, y: 0, z: 0}
   tileType: 2
