@@ -7,7 +7,7 @@ public class CameraControl : MonoBehaviour
 
 
 	public Camera mainCam;
-	float lookSensitivity = 0.02
+	float lookSensitivity = 0.02f;
 	float movementSpeed = 10;
 
 	void Awake()
