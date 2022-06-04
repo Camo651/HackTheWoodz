@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
 	public Tilemap tileMap;
-	public List<Element> childedElements = new List<Element>();
+	public List<List<Element>> childedElements = new List<List<Element>>(); //5x5 matrix (elms 2x2 grid scale)
 	public Vector3 tilePosition;
 	public TileType tileType;
 	public enum TileType
@@ -14,5 +14,10 @@ public class Tile : MonoBehaviour
 		Anchor,
 		Ghost,
 		Basic
+	}
+
+	public void GenerateElements()
+	{
+
 	}
 }
