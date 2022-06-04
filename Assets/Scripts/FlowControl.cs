@@ -44,23 +44,23 @@ public class FlowControl : MonoBehaviour
 		if (ghost.tilePosition.y == 0)
 			return true;
 
-		bool allElementsMatch = true;
+		bool allElementsMatch = true, containsElements = false;
 		List<List<Element>> baseElements = tileMap.GetTileInMap(ghost.tilePosition - (Vector3.up * tileMap.tileDimensions.y)).childedElements;
 		for (int x = 0; x < tileMap.tileDimensions.x / tileMap.elementDimensions.x; x++)
 		{
 			for (int z = 0; z < tileMap.tileDimensions.z / tileMap.elementDimensions.z; z++)
 			{
-				if (previewElements[x][z] == Element.ElementType.Building)
+				if (previewElements[x][z] != Element.ElementType.None)
 				{
-					print(x + " " + z);
-					if(baseElements[x][z].elementType != Element.ElementType.Building)
+					containsElements = true;
+					if(baseElements[x][z] == null || baseElements[x][z].elementType != Element.ElementType.Building)
 					{
 						allElementsMatch = false;
 					}
 				}
 			}
 		}
-		return allElementsMatch;
+		return allElementsMatch && containsElements;
 	}
 
 	public void SetPreviewTile(List<List<Element.ElementType>> e)
