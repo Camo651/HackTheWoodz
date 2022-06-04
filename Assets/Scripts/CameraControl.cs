@@ -39,7 +39,7 @@ public class CameraControl : MonoBehaviour
         }
 		if (Input.GetKeyDown(KeyCode.W))
         {
-			transform.position += transform.forward * Time.fixedDeltaTime * movementSpeed;
+			transform.position += Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized * Time.fixedDeltaTime * movementSpeed;
         }
 		if (Input.GetKeyDown(KeyCode.A))
 		{
@@ -47,7 +47,7 @@ public class CameraControl : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.S))
 		{
-			transform.position += transform.forward * Time.fixedDeltaTime * -movementSpeed;
+			transform.position += Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized * Time.fixedDeltaTime * -movementSpeed;
 		}
 		if (Input.GetKeyDown(KeyCode.D))
 		{
@@ -64,9 +64,10 @@ public class CameraControl : MonoBehaviour
 
 		//rotation
 		if (Input.GetMouseButtonDown(1)) {
-			float rotX = transform.localEulerAngles.y + Input.GetAxisRaw("Mouse X") * lookSensitivity;
-			float rotY = transform.localEulerAngles.x - Input.GetAxisRaw("Mouse Y") * lookSensitivity;
+			float rotX = transform.localEulerAngles.y + Input.GetAxisRaw("Mouse X") * lookSensitivity * Time.FixedDeltaTime;
+			float rotY = transform.localEulerAngles.x - Input.GetAxisRaw("Mouse Y") * lookSensitivity * Time.FixedDeltaTime;
 			transform.localEulerAngles += new Vector3(rotY, rotX, 0f);
+			transform.localEulerAngles.x = Mathf.Clamp(transform.localEulerAngles.x, -85, 85);
 		}
     }
 }
