@@ -10,6 +10,7 @@ public class Element : MonoBehaviour
 	{
 		None,
 		Building,
+		Standalone,
 		Field,
 		Path,
 	};

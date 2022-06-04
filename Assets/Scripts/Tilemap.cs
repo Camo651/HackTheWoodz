@@ -47,7 +47,9 @@ public class Tilemap : MonoBehaviour
 		{
 			foreach (Vector3 offset in offsets)
 			{
-				CreateTile(Tile.TileType.Ghost, (tile.tilePosition + offset*tileDimensions.x), false, null);
+				Vector3 newPos = (tile.tilePosition + offset * tileDimensions.x);
+				if(newPos.y == 0 || (GetTileInMap(newPos+(Vector3.down*tileDimensions.y))!=null && GetTileInMap(newPos + (Vector3.down * tileDimensions.y)).tileType != Tile.TileType.Ghost))
+					CreateTile(Tile.TileType.Ghost, newPos, false, null);
 			}
 			CreateTile(Tile.TileType.Ghost, (tile.tilePosition + Vector3.up * tileDimensions.y), false, null);
 		}

@@ -22,7 +22,7 @@ public class FlowControl : MonoBehaviour
 			Tile t = cameraControl.RaycastTile();
 			if (t)
 			{
-				if(t.tileType == Tile.TileType.Ghost)
+				if(t.tileType == Tile.TileType.Ghost && TileCanBePlaced(t))
 				{
 
 					//check that it can be placed there here
@@ -45,13 +45,14 @@ public class FlowControl : MonoBehaviour
 			return true;
 
 		bool allElementsMatch = true;
-		List<List<Element>> baseElements = tileMap.GetTileInMap(ghost.tilePosition - (Vector3.down * tileMap.tileDimensions.y)).childedElements;
+		List<List<Element>> baseElements = tileMap.GetTileInMap(ghost.tilePosition - (Vector3.up * tileMap.tileDimensions.y)).childedElements;
 		for (int x = 0; x < tileMap.tileDimensions.x / tileMap.elementDimensions.x; x++)
 		{
 			for (int z = 0; z < tileMap.tileDimensions.z / tileMap.elementDimensions.z; z++)
 			{
 				if (previewElements[x][z] == Element.ElementType.Building)
 				{
+					print(x + " " + z);
 					if(baseElements[x][z].elementType != Element.ElementType.Building)
 					{
 						allElementsMatch = false;

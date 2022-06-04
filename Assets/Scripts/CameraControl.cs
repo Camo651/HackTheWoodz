@@ -52,7 +52,7 @@ public class CameraControl : MonoBehaviour
 			float rotX = Input.GetAxis("Mouse X") * lookSensitivity * Time.deltaTime;
 			float rotY = Input.GetAxis("Mouse Y") * -lookSensitivity * Time.deltaTime;
 			transform.localEulerAngles += new Vector3(rotY, rotX, 0f);
-			Debug.Log(transform.localEulerAngles.x);
+			//Debug.Log(transform.localEulerAngles.x);
 			//transform.localEulerAngles = new Vector3(Mathf.Clamp(transform.localEulerAngles.x, -85f, 85f), transform.localEulerAngles.y, transform.localEulerAngles.z);
 		}
 	}

@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour
 	public List<List<Element>> childedElements = new List<List<Element>>();
 	public Vector3 tilePosition;
 	public TileType tileType;
+	public bool isBuildable;
 	public enum TileType
 	{
 		None,
@@ -36,17 +37,17 @@ public class Tile : MonoBehaviour
 						if (addToMap)
 							tileMap.elementMap.Add(elm.transform.position, elm);
 
-						if(tilePosition.y > 0)
+						if(tilePosition.y > 0 && tileMap.elementMap.ContainsKey(new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)))
 						{
-							Element lower = tileMap.elementMap[new Vector3(x, tilePosition.y - tileMap.tileDimensions.y, z)];
+							Element lower = tileMap.elementMap[new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)];
 							Vector3 lowPos = lower.transform.position;
 							Tile lowTile = lower.parentTile;
 							tileMap.elementMap.Remove(lowPos);
 							Destroy(lower.gameObject);
 							Element newLow = Instantiate(model.HasTopModel, lowTile.transform.GetChild(0)).GetComponent<Element>();
-							elm.transform.localPosition = new Vector3(x * tileMap.elementDimensions.x, 0, -z * tileMap.elementDimensions.z);
-							elm.transform.name = elm.transform.position + "";
-							elm.parentTile = lowTile;
+							newLow.transform.localPosition = new Vector3(x * tileMap.elementDimensions.x, 0, -z * tileMap.elementDimensions.z);
+							newLow.transform.name = newLow.transform.position + "";
+							newLow.parentTile = lowTile;
 							lowTile.childedElements[x][z] = newLow;
 							tileMap.elementMap[elm.transform.position] = newLow;
 
