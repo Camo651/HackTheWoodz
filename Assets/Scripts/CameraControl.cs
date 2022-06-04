@@ -7,7 +7,7 @@ public class CameraControl : MonoBehaviour
 
 
 	public Camera mainCam;
-	float lookSensitivity = 0.02f;
+	float lookSensitivity = 500f;
 	float movementSpeed = 10;
 
 	void Awake()
@@ -15,7 +15,49 @@ public class CameraControl : MonoBehaviour
 		mainCam = Camera.main;
 	}
 
-	public GameObject Raycast()
+    private void Update()
+    {
+		movementSpeed = 10;
+		if (Input.GetKey(KeyCode.LeftShift))
+		{
+			movementSpeed = 20;
+		}
+		if (Input.GetKey(KeyCode.W))
+		{
+			transform.position += Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized * Time.deltaTime * movementSpeed;
+		}
+		if (Input.GetKey(KeyCode.A))
+		{
+			transform.position += transform.right * Time.deltaTime * -movementSpeed;
+		}
+		if (Input.GetKey(KeyCode.S))
+		{
+			transform.position += Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized * Time.deltaTime * -movementSpeed;
+		}
+		if (Input.GetKey(KeyCode.D))
+		{
+			transform.position += transform.right * Time.deltaTime * movementSpeed;
+		}
+		if (Input.GetKey(KeyCode.Q))
+		{
+			transform.position += Vector3.up * Time.deltaTime * movementSpeed;
+		}
+		if (Input.GetKey(KeyCode.E))
+		{
+			transform.position += Vector3.up * Time.deltaTime * -movementSpeed;
+		}
+
+		//rotation
+		if (Input.GetMouseButton(1))
+		{
+			float rotX = Input.GetAxis("Mouse X") * lookSensitivity * Time.deltaTime;
+			float rotY = Input.GetAxis("Mouse Y") * -lookSensitivity * Time.deltaTime;
+			transform.localEulerAngles += new Vector3(rotY, rotX, 0f);
+			Debug.Log(transform.localEulerAngles.x);
+			//transform.localEulerAngles = new Vector3(Mathf.Clamp(transform.localEulerAngles.x, -85f, 85f), transform.localEulerAngles.y, transform.localEulerAngles.z);
+		}
+	}
+    public GameObject Raycast()
 	{
 		Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
@@ -32,43 +74,6 @@ public class CameraControl : MonoBehaviour
 		return hit!=null?hit.GetComponentInParent<Tile>():null;
 	}
 	void FixedUpdate() {
-		float shift = Input.GetKey(KeyCode.LeftShift) ? 1 : 0;
-		movementSpeed = 10;
-		if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-			movementSpeed = 20;
-        }
-		if (Input.GetKeyDown(KeyCode.W))
-        {
-			transform.position += Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized * Time.fixedDeltaTime * movementSpeed;
-        }
-		if (Input.GetKeyDown(KeyCode.A))
-		{
-			transform.position += transform.right * Time.fixedDeltaTime * -movementSpeed;
-		}
-		if (Input.GetKeyDown(KeyCode.S))
-		{
-			transform.position += Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized * Time.fixedDeltaTime * -movementSpeed;
-		}
-		if (Input.GetKeyDown(KeyCode.D))
-		{
-			transform.position += transform.right * Time.fixedDeltaTime * movementSpeed;
-		}
-		if (Input.GetKeyDown(KeyCode.Q))
-        {
-			transform.position += Vector3.up * Time.fixedDeltaTime * movementSpeed;
-		}
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-			transform.position += Vector3.up * Time.fixedDeltaTime * -movementSpeed;
-		}
-
-		//rotation
-		if (Input.GetMouseButtonDown(1)) {
-			float rotX = transform.localEulerAngles.y + Input.GetAxisRaw("Mouse X") * lookSensitivity * Time.fixedDeltaTime;
-			float rotY = transform.localEulerAngles.x - Input.GetAxisRaw("Mouse Y") * lookSensitivity * Time.fixedDeltaTime;
-			transform.localEulerAngles += new Vector3(rotY, rotX, 0f);
-			transform.localEulerAngles = new Vector3(Mathf.Clamp(transform.localEulerAngles.x, -85f, 85f), transform.localEulerAngles.y, transform.localEulerAngles.z);
-		}
+		
     }
 }
