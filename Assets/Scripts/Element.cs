@@ -8,6 +8,7 @@ public class Element : MonoBehaviour
 	public ElementType elementType;
 	public enum ElementType
 	{
+		None,
 		Building,
 		Field,
 		Path,

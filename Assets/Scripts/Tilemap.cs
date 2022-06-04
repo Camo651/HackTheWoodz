@@ -31,7 +31,7 @@ public class Tilemap : MonoBehaviour
 	/// <param name="_type"></param>
 	/// <param name="_pos"></param>
 	/// <returns></returns>
-	public Tile CreateTile(Tile.TileType _type, Vector3 _pos, bool createGhosts, bool generateElements)
+	public Tile CreateTile(Tile.TileType _type, Vector3 _pos, bool createGhosts, List<List<Element.ElementType>> elements)
 	{
 		if (GetTileInMap(_pos) != null)
 			return null;
@@ -45,13 +45,8 @@ public class Tilemap : MonoBehaviour
 		{
 			foreach (Vector3 offset in offsets)
 			{
-				CreateTile(Tile.TileType.Ghost, (tile.tilePosition + offset*tileDimensions.x), false,false);
+				CreateTile(Tile.TileType.Ghost, (tile.tilePosition + offset*tileDimensions.x), false, null);
 			}
-		}
-
-		if (generateElements)
-		{
-			tile.GenerateElements();
 		}
 
 		return tile;
