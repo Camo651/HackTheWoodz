@@ -8,6 +8,7 @@ public class CameraControl : MonoBehaviour
 
 	public Camera mainCam;
 	float lookSensitivity = 0.02
+	float movementSpeed = 10;
 
 	void Awake()
 	{
@@ -32,7 +33,6 @@ public class CameraControl : MonoBehaviour
 	}
 	void FixedUpdate() {
 		float shift = Input.GetKey(KeyCode.LeftShift) ? 1 : 0;
-		float movementSpeed = 1;
 		movementSpeed = 10;
 		if(Input.GetKeyDown(KeyCode.LeftShift))
         {
