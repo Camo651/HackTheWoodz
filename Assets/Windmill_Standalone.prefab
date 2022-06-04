@@ -4364,7 +4364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6321795761509991594}
   m_Layer: 0
-  m_Name: Windmill
+  m_Name: Windmill_Standalone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
