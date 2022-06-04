@@ -36,6 +36,7 @@ public class Tilemap : MonoBehaviour
 		Tile tile = Instantiate(_type==Tile.TileType.Ghost?ghostTilePrefab:tilePrefab, _pos, Quaternion.identity).GetComponent<Tile>();
 		tile.tileMap = this;
 		tile.tileType = _type;
+		tile.tilePosition = _pos;
 		coordinateMap.Add(_pos, tile);
 
 		if (createGhosts)

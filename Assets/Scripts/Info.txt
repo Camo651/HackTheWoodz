@@ -1,7 +1,7 @@
 ToDo:
-- Camera Control Script
-- Tilemap system
+- Camera Control Script (Thomas)
+- Tilemap system (Matt)
 - Tile class
-- Tiles can be placed and destroyed
+XXX- Tiles can be placed and destroyed (Matt)
 - Tiles can have elements put on them
 - Element class

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour
-{
+	{
+
+
 	public Camera mainCam;
 
 	public void Awake()
@@ -26,5 +28,8 @@ public class CameraControl : MonoBehaviour
 	{
 		GameObject hit = Raycast();
 		return hit.GetComponentInParent<Tile>();
+	}
+	public FixedUpdate() {
+	motion = new Vector3(inp)
 	}
 }

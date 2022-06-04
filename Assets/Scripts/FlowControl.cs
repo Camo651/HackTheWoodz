@@ -23,8 +23,9 @@ public class FlowControl : MonoBehaviour
 				{
 
 					//check that it can be placed there here
+					Vector3 pos = t.tilePosition;
 					tileMap.DelteTile(t);
-
+					tileMap.CreateTile(Tile.TileType.Basic, pos, true);
 				}
 			}
 		}
