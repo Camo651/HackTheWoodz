@@ -31,7 +31,7 @@ public class CameraControl : MonoBehaviour
 		return hit.GetComponentInParent<Tile>();
 	}
 	void FixedUpdate() {
-		float shift = Input.GetKey(KeyCode.LeftShift);
+		float shift = Input.GetKey(KeyCode.LeftShift) ? 1 : 0;
 		float movementSpeed = 1;
 		if(Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -63,10 +63,10 @@ public class CameraControl : MonoBehaviour
 		}
 
 		//rotation
-		if (Input.GetKeyDown(Input.GetMouseButtonDown(1)) {
+		if (Input.GetMouseButtonDown(1)) {
 			float rotX = transform.localEulerAngles.y + Input.GetAxisRaw("Mouse X") * lookSensitivity;
 			float rotY = transform.localEulerAngles.x - Input.GetAxisRaw("Mouse Y") * lookSensitivity;
-			transform.localEulerAngles += Vector3(rotY, rotX, 0f);
+			transform.localEulerAngles += new Vector3(rotY, rotX, 0f);
 		}
     }
 }
