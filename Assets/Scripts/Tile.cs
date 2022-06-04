@@ -18,6 +18,17 @@ public class Tile : MonoBehaviour
 
 	public void GenerateElements()
 	{
+		for (int x = 0; x < 5; x++)
+		{
+			childedElements.Add(new List<Element>());
+			for (int z = 0; z < 5; z++)
+			{
+				childedElements[x].Add()
+				if(Mathf.PerlinNoise((tilePosition.x*5) + x, (tilePosition.z*5) + z) > .4f)
+				{
 
+				}
+			}
+		}
 	}
 }
