@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 85d2b5dfdaad6194ca1f1e0da6337c3c
+guid: 516722ca92b53b84d85a450a3a1c5299
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Angelus Medieval
+  - FlutedGermanica
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
