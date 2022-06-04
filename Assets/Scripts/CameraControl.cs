@@ -8,7 +8,7 @@ public class CameraControl : MonoBehaviour
 
 	public Camera mainCam;
 	float lookSensitivity = 500f;
-	float movementSpeed = 10;
+	float movementSpeed = 30;
 
 	void Awake()
 	{
@@ -17,7 +17,6 @@ public class CameraControl : MonoBehaviour
 
     private void Update()
     {
-		movementSpeed = 10;
 		if (Input.GetKey(KeyCode.LeftShift))
 		{
 			movementSpeed = 20;
@@ -38,11 +37,11 @@ public class CameraControl : MonoBehaviour
 		{
 			transform.position += transform.right * Time.deltaTime * movementSpeed;
 		}
-		if (Input.GetKey(KeyCode.Q))
+		if (Input.GetKey(KeyCode.E))
 		{
 			transform.position += Vector3.up * Time.deltaTime * movementSpeed;
 		}
-		if (Input.GetKey(KeyCode.E))
+		if (Input.GetKey(KeyCode.Q))
 		{
 			transform.position += Vector3.up * Time.deltaTime * -movementSpeed;
 		}
@@ -74,6 +73,6 @@ public class CameraControl : MonoBehaviour
 		return hit!=null?hit.GetComponentInParent<Tile>():null;
 	}
 	void FixedUpdate() {
-		
+
     }
 }

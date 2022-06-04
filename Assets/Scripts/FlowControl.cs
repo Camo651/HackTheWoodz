@@ -33,12 +33,39 @@ public class FlowControl : MonoBehaviour
 				}
 			}
 		}
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			RotatePreviewTile();
+		}
+	}
+
+	public bool TileCanBePlaced(Tile ghost)
+	{
+		if (ghost.tilePosition.y == 0)
+			return true;
+
+		bool allElementsMatch = true;
+		List<List<Element>> baseElements = tileMap.GetTileInMap(ghost.tilePosition - (Vector3.down * tileMap.tileDimensions.y)).childedElements;
+		for (int x = 0; x < tileMap.tileDimensions.x / tileMap.elementDimensions.x; x++)
+		{
+			for (int z = 0; z < tileMap.tileDimensions.z / tileMap.elementDimensions.z; z++)
+			{
+				if (previewElements[x][z] == Element.ElementType.Building)
+				{
+					if(baseElements[x][z].elementType != Element.ElementType.Building)
+					{
+						allElementsMatch = false;
+					}
+				}
+			}
+		}
+		return allElementsMatch;
 	}
 
 	public void SetPreviewTile(List<List<Element.ElementType>> e)
 	{
 		previewTile.ClearElementsOnTile();
-		previewTile.GenerateElementsOnTile(e);
+		previewTile.GenerateElementsOnTile(e, false);
 		previewElements = e;
 	}
 
@@ -58,5 +85,15 @@ public class FlowControl : MonoBehaviour
 			}
 		}
 		return elms;
+	}
+
+	public void RotatePreviewTile()
+	{
+		List<List<Element.ElementType>> remap = new List<List<Element.ElementType>>();
+		remap.Add(new List<Element.ElementType>() { previewElements[2][0], previewElements[1][0], previewElements[0][0] });
+		remap.Add(new List<Element.ElementType>() { previewElements[2][1], previewElements[1][1], previewElements[0][1] });
+		remap.Add(new List<Element.ElementType>() { previewElements[2][2], previewElements[1][2], previewElements[0][2] });
+		previewElements = remap;
+		SetPreviewTile(previewElements);
 	}
 }
