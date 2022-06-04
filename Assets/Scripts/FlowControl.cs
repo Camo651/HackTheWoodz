@@ -81,7 +81,7 @@ public class FlowControl : MonoBehaviour
 				elms[x].Add(Element.ElementType.None);
 				if (Mathf.PerlinNoise((seed * 5.01f) + x, (seed * 5.01f) + z) * 10f > 6f)
 				{
-					elms[x][z] = Element.ElementType.Field;
+					elms[x][z] = Random.value < .5f ? Element.ElementType.Field : Element.ElementType.Building;
 				}
 			}
 		}
