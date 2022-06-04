@@ -35,7 +35,7 @@ public class CameraControl : MonoBehaviour
 		float movementSpeed = 1;
 		if(Input.GetKeyDown(KeyCode.LeftShift))
         {
-			movementSpeed = 2;
+			movementSpeed = 20;
         }
 		if (Input.GetKeyDown(KeyCode.W))
         {
@@ -64,10 +64,10 @@ public class CameraControl : MonoBehaviour
 
 		//rotation
 		if (Input.GetMouseButtonDown(1)) {
-			float rotX = transform.localEulerAngles.y + Input.GetAxisRaw("Mouse X") * lookSensitivity * Time.FixedDeltaTime;
-			float rotY = transform.localEulerAngles.x - Input.GetAxisRaw("Mouse Y") * lookSensitivity * Time.FixedDeltaTime;
+			float rotX = transform.localEulerAngles.y + Input.GetAxisRaw("Mouse X") * lookSensitivity * Time.fixedDeltaTime;
+			float rotY = transform.localEulerAngles.x - Input.GetAxisRaw("Mouse Y") * lookSensitivity * Time.fixedDeltaTime;
 			transform.localEulerAngles += new Vector3(rotY, rotX, 0f);
-			transform.localEulerAngles.x = Mathf.Clamp(transform.localEulerAngles.x, -85, 85);
+			transform.localEulerAngles = new Vector3(Mathf.Clamp(transform.localEulerAngles.x, -85, 85), transform.localEulerAngles.y, transform.localEulerAngles.z);
 		}
     }
 }

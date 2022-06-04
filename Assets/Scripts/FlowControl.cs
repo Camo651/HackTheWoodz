@@ -8,7 +8,7 @@ public class FlowControl : MonoBehaviour
 	public CameraControl cameraControl;
 	private void Start()
 	{
-		tileMap.CreateTile(Tile.TileType.Anchor, Vector3.zero, true);
+		tileMap.CreateTile(Tile.TileType.Anchor, Vector3.zero, true, true);
 	}
 
 	private void Update()
@@ -25,7 +25,7 @@ public class FlowControl : MonoBehaviour
 					//check that it can be placed there here
 					Vector3 pos = t.tilePosition;
 					tileMap.DelteTile(t);
-					tileMap.CreateTile(Tile.TileType.Basic, pos, true);
+					tileMap.CreateTile(Tile.TileType.Basic, pos, true, true);
 				}
 			}
 		}

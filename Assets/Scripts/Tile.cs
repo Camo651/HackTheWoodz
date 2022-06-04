@@ -23,10 +23,11 @@ public class Tile : MonoBehaviour
 			childedElements.Add(new List<Element>());
 			for (int z = 0; z < 5; z++)
 			{
-				childedElements[x].Add()
+				childedElements[x].Add(null);
 				if(Mathf.PerlinNoise((tilePosition.x*5) + x, (tilePosition.z*5) + z) > .4f)
 				{
-
+					Element e = Instantiate(tileMap.elementPrefabs[0], transform).GetComponent<Element>();
+					e.transform.localPosition = new Vector3(x * 2, 0, x * 2);
 				}
 			}
 		}
