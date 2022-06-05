@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FlowControl : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class FlowControl : MonoBehaviour
 	public Tile previewTile;
 	public List<List<Element.ElementType>> previewElements;
 	public Tile hoveredTile;
+	public int playerScore;
+	public int remainingTiles;
+	public TextMeshProUGUI scoreText, tilesText;
+
 	private void Start()
 	{
 		tileMap.CreateTile(Tile.TileType.Ghost, Vector3.zero, false, null);
@@ -23,11 +28,8 @@ public class FlowControl : MonoBehaviour
 		{
 			if (Input.GetMouseButtonDown(0))
 			{
-				//check that the player is able to place tiles
 				if (t.tileType == Tile.TileType.Ghost && TileCanBePlaced(t))
 				{
-
-					//check that it can be placed there here
 					Vector3 pos = t.tilePosition;
 					tileMap.DelteTile(t);
 					tileMap.CreateTile(Tile.TileType.Basic, pos, true, previewElements);

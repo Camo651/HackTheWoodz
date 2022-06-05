@@ -1,7 +1,6 @@
 ToDo:
 - Implement trees
 - Point system that scores up when player places a tile that matches neighboring tiles and extra points for the higher the building
-- Add variability to the elementPrefab so class
 - Intro screen
 - HUD for points and stuff
 - Audio manager for placing tiles / points etc
@@ -9,4 +8,3 @@ ToDo:
 - Path parts
 - Castle wall parts
 - Unique structures (windmill, well, statues, etc)
--

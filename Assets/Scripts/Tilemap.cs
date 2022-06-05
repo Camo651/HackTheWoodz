@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Tilemap : MonoBehaviour
 {
+	public FlowControl fc;
 	public Dictionary<Vector3, Tile> coordinateMap = new Dictionary<Vector3, Tile>();
 	public Dictionary<Vector3, Element> elementMap = new Dictionary<Vector3, Element>();
 	public GameObject tilePrefab, ghostTilePrefab;
