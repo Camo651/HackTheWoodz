@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e62f34494f4fd40b0e42bdae85bca7, type: 3}
   m_Name: CastleWall
   m_EditorClassIdentifier: 
-  elementType: 1
+  elementType: 3
+  isStackable: 1
   audioIndex: 0
   StandaloneModel:
   - {fileID: 9101367440545564247, guid: 3aff776bb260466418bde3d75f531e47, type: 3}

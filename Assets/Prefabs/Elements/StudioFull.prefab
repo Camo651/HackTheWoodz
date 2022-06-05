@@ -535,5 +535,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentTile: {fileID: 0}
-  elementType: 1
+  elementType: 2
   typeIndex: 0
+  isStackable: 1

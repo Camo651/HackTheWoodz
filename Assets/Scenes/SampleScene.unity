@@ -1648,6 +1648,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6a8a818585483c64ea4a68d09ea78b12, type: 2}
   - {fileID: 11400000, guid: ec2278d83d6572d4c8abcbd6f07c8d34, type: 2}
   - {fileID: 11400000, guid: adb326a3091c96746b99210a85ee3b02, type: 2}
+  - {fileID: 11400000, guid: ab0969446dcc4d9408bb6e52991295dc, type: 2}
 --- !u!4 &1064226341
 Transform:
   m_ObjectHideFlags: 0
@@ -1687,6 +1688,7 @@ MonoBehaviour:
   scoreParticleHolder: {fileID: 679305730}
   pauseMenu: {fileID: 327561786}
   gameIsPaused: 0
+  typeWeights: 020000000500000001000000010000000300000002000000
 --- !u!43 &1097143754
 Mesh:
   m_ObjectHideFlags: 0

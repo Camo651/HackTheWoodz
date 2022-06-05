@@ -6,6 +6,7 @@ using UnityEngine;
 public class ElementPrefab : ScriptableObject
 {
 	public Element.ElementType elementType;
+	public bool isStackable;
 	public int audioIndex;
 	[Space(10)]
 	public GameObject[] StandaloneModel;

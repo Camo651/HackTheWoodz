@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentTile: {fileID: 0}
-  elementType: 1
+  elementType: 5
   typeIndex: 0
+  isStackable: 1
 --- !u!1 &7008309572994829321
 GameObject:
   m_ObjectHideFlags: 0

@@ -537,6 +537,7 @@ MonoBehaviour:
   parentTile: {fileID: 0}
   elementType: 1
   typeIndex: 0
+  isStackable: 0
 --- !u!1 &4144010417464996560
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,8 +584,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentTile: {fileID: 0}
-  elementType: 1
+  elementType: 2
   typeIndex: 0
+  isStackable: 1
 --- !u!1 &4279341198729395396
 GameObject:
   m_ObjectHideFlags: 0

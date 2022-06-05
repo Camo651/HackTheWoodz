@@ -807,5 +807,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentTile: {fileID: 0}
-  elementType: 1
+  elementType: 3
   typeIndex: 0
+  isStackable: 1

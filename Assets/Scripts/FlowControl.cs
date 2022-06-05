@@ -88,7 +88,7 @@ public class FlowControl : MonoBehaviour
 
 
 
-		previewTile.transform.localEulerAngles = Vector3.up * (360f-cameraControl.transform.localEulerAngles.y);
+		previewTile.transform.localEulerAngles = Vector3.up * (360f-cameraControl.transform.parent.localEulerAngles.y);
 	}
 
 	public void TogglePause()
@@ -117,7 +117,7 @@ public class FlowControl : MonoBehaviour
 				if (previewElements[x][z] != Element.ElementType.None)
 				{
 					containsElements = true;
-					if(baseElements[x][z] == null || baseElements[x][z].elementType != Element.ElementType.Building || (baseElements[x][z].elementType == Element.ElementType.Building && previewElements[x][z] != Element.ElementType.Building))
+					if(baseElements[x][z] == null || !baseElements[x][z].isStackable)
 					{
 						allElementsMatch = false;
 					}
@@ -134,6 +134,15 @@ public class FlowControl : MonoBehaviour
 		previewElements = e;
 	}
 
+	public Element.ElementType[] typeWeights =
+	{
+		Element.ElementType.Studio,
+		Element.ElementType.Hut,
+		Element.ElementType.Field,
+		Element.ElementType.Field,
+		Element.ElementType.CastleWall,
+		Element.ElementType.Studio,
+	};
 	public List<List<Element.ElementType>> GenerateElements(int seed)
 	{
 		bool hasElements = false;
@@ -152,7 +161,7 @@ public class FlowControl : MonoBehaviour
 					if (Mathf.PerlinNoise((seed * 5.01f) + x, (seed * 5.01f) + z) * 10f > 6f)
 					{
 						hasElements = true;
-						elms[x][z] = Random.value < .2f ? Element.ElementType.Field : Element.ElementType.Building;
+						elms[x][z] = typeWeights[Random.Range(0, typeWeights.Length)];
 					}
 				}
 			}

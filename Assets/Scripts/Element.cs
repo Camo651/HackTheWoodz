@@ -7,12 +7,14 @@ public class Element : MonoBehaviour
 	public Tile parentTile;
 	public ElementType elementType;
 	public int typeIndex;
+	public bool isStackable;
 	public enum ElementType
 	{
 		None,
-		Building,
-		Standalone,
 		Field,
-		Path,
+		Studio,
+		CastleWall,
+		CastleTower,
+		Hut,
 	};
 }

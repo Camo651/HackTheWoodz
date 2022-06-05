@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e62f34494f4fd40b0e42bdae85bca7, type: 3}
   m_Name: Studio
   m_EditorClassIdentifier: 
-  elementType: 1
+  elementType: 2
+  isStackable: 1
   audioIndex: 0
   StandaloneModel:
   - {fileID: 4144010417464996560, guid: baf6dfe6bca45df4ba20445bbd54b8d1, type: 3}

@@ -36,12 +36,16 @@ public class Tile : MonoBehaviour
 						Element elm = Instantiate(model.StandaloneModel[typeIdex], transform.GetChild(0)).GetComponent<Element>();
 						elm.transform.localPosition = new Vector3(x * tileMap.elementDimensions.x + 2, 0, -z * tileMap.elementDimensions.z - 2);
 						elm.transform.name = elm.transform.position + "";
+						elm.isStackable = model.isStackable;
 						elm.parentTile = this;
 						elm.typeIndex = typeIdex;
 						elm.transform.localEulerAngles = Vector3.up * 90 * Random.Range(0, 4);
+
 						childedElements[x].Add(elm);
 						if (addToMap)
+						{
 							tileMap.elementMap.Add(elm.transform.position, elm);
+						}
 						totalPointsToAdd += ((int)tilePosition.y+1) * 10;
 
 						List<Element> nei = tileMap.GetNeighboringElements(elm.transform.position);
@@ -53,20 +57,26 @@ public class Tile : MonoBehaviour
 							}
 						}
 
-						if (tilePosition.y > 0 && tileMap.elementMap.ContainsKey(new Vector3(elm.transform.position.x + 2, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z - 2)))
+						if (tilePosition.y > 0 && tileMap.elementMap.ContainsKey(new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)))
 						{
 							if (addToMap)
 								tileMap.fc.am.Play(2);
-							Element lower = tileMap.elementMap[new Vector3(elm.transform.position.x + 2, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z - 2)];
+							Element lower = tileMap.elementMap[new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)];
+							ElementPrefab ddd = GetCorrectModelForElement(lower.elementType);
 							Vector3 lowPos = lower.transform.position;
 							Tile lowTile = lower.parentTile;
 							tileMap.elementMap.Remove(lowPos);
 							int ti = lower.typeIndex;
+							float rotation = lower.transform.localEulerAngles.y;
+							bool isStack = lower.isStackable;
 							Destroy(lower.gameObject);
-							Element newLow = Instantiate(model.HasTopModel[ti], lowTile.transform.GetChild(0)).GetComponent<Element>();
+							elm.transform.localEulerAngles = Vector3.up * rotation;
+							Element newLow = Instantiate(ddd.HasTopModel[ti], lowTile.transform.GetChild(0)).GetComponent<Element>();
 							newLow.transform.localPosition = new Vector3(x * tileMap.elementDimensions.x + 2, 0, -z * tileMap.elementDimensions.z - 2);
 							newLow.transform.name = newLow.transform.position + "";
 							newLow.parentTile = lowTile;
+							newLow.transform.localEulerAngles = Vector3.up * rotation;
+							newLow.isStackable = isStack;
 							lowTile.childedElements[x][z] = newLow;
 							tileMap.elementMap[newLow.transform.position] = newLow;
 						}
