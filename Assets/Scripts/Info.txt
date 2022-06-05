@@ -4,3 +4,5 @@ ToDo:
 - Castle wall parts
 - Unique structures (windmill, well, statues, etc)
 - Intro tutorial thing
+- centre prefabs
+- Fix camera rotation stuff and start pos

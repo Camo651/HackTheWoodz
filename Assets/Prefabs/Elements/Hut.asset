@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2e62f34494f4fd40b0e42bdae85bca7, type: 3}
-  m_Name: StudioApt
+  m_Name: Hut
   m_EditorClassIdentifier: 
-  elementType: 1
-  audioIndex: 1
+  elementType: 0
+  audioIndex: 0
   StandaloneModel:
-  - {fileID: 4352422725075786382, guid: c85605bf9c759ab4fbc5983125619ed4, type: 3}
+  - {fileID: 458430676076406441, guid: f6d08dcf5fc8dd54091470371b48791d, type: 3}
   HasTopModel:
-  - {fileID: 4912129364569959267, guid: 33ac7df757a7c194199bbd143d28d2e4, type: 3}
+  - {fileID: 1852582503841282105, guid: d3d3fa3bb7f24664fbc72b82789636b7, type: 3}

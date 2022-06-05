@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2e62f34494f4fd40b0e42bdae85bca7, type: 3}
-  m_Name: Hut
+  m_Name: Field
   m_EditorClassIdentifier: 
-  elementType: 1
+  elementType: 3
   audioIndex: 0
   StandaloneModel:
-  - {fileID: 2847874204248026792, guid: e18df68f009cdf441a1a35233d1340e9, type: 3}
-  HasTopModel:
-  - {fileID: 2847874204248026792, guid: 259856a7f31d7814b9bbdbc1587ed3b1, type: 3}
+  - {fileID: 3779704231786613643, guid: 1ad6c8afd023003479834b117ca36ee2, type: 3}
+  HasTopModel: []

@@ -34,10 +34,11 @@ public class Tile : MonoBehaviour
 							tileMap.fc.am.Play(model.audioIndex);
 						int typeIdex = Random.Range(0, model.StandaloneModel.Length);
 						Element elm = Instantiate(model.StandaloneModel[typeIdex], transform.GetChild(0)).GetComponent<Element>();
-						elm.transform.localPosition = new Vector3(x * tileMap.elementDimensions.x, 0, -z * tileMap.elementDimensions.z);
+						elm.transform.localPosition = new Vector3(x * tileMap.elementDimensions.x + 2, 0, -z * tileMap.elementDimensions.z - 2);
 						elm.transform.name = elm.transform.position + "";
 						elm.parentTile = this;
 						elm.typeIndex = typeIdex;
+						elm.transform.localEulerAngles = Vector3.up * 90 * Random.Range(0, 4);
 						childedElements[x].Add(elm);
 						if (addToMap)
 							tileMap.elementMap.Add(elm.transform.position, elm);
@@ -52,18 +53,18 @@ public class Tile : MonoBehaviour
 							}
 						}
 
-						if (tilePosition.y > 0 && tileMap.elementMap.ContainsKey(new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)))
+						if (tilePosition.y > 0 && tileMap.elementMap.ContainsKey(new Vector3(elm.transform.position.x + 2, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z - 2)))
 						{
 							if (addToMap)
 								tileMap.fc.am.Play(2);
-							Element lower = tileMap.elementMap[new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)];
+							Element lower = tileMap.elementMap[new Vector3(elm.transform.position.x + 2, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z - 2)];
 							Vector3 lowPos = lower.transform.position;
 							Tile lowTile = lower.parentTile;
 							tileMap.elementMap.Remove(lowPos);
 							int ti = lower.typeIndex;
 							Destroy(lower.gameObject);
 							Element newLow = Instantiate(model.HasTopModel[ti], lowTile.transform.GetChild(0)).GetComponent<Element>();
-							newLow.transform.localPosition = new Vector3(x * tileMap.elementDimensions.x, 0, -z * tileMap.elementDimensions.z);
+							newLow.transform.localPosition = new Vector3(x * tileMap.elementDimensions.x + 2, 0, -z * tileMap.elementDimensions.z - 2);
 							newLow.transform.name = newLow.transform.position + "";
 							newLow.parentTile = lowTile;
 							lowTile.childedElements[x][z] = newLow;
