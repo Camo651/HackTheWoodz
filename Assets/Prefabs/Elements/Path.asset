@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e62f34494f4fd40b0e42bdae85bca7, type: 3}
+  m_Name: Path
+  m_EditorClassIdentifier: 
+  elementType: 6
+  isStackable: 0
+  audioIndex: 4
+  StandaloneModel:
+  - {fileID: 2532230031047735265, guid: 9336b1ddd2bbd2448b7c34dfc1261208, type: 3}
+  - {fileID: 2257783439850650551, guid: c144e7e9a6bd54f4eae6165f4d458938, type: 3}
+  - {fileID: 6906034750784707630, guid: 3bd1a6381d9be8f43a603d184610face, type: 3}
+  - {fileID: 3104206235252994394, guid: a2dfa30eb09ead845bd3b6e80fc335de, type: 3}
+  - {fileID: 2500866133116142643, guid: fdc31513ad0e3e0498c55b4c43be6a6b, type: 3}
+  - {fileID: 2257783439850650551, guid: 1e995a831cf4afb43bca8a03c031ad6b, type: 3}
+  HasTopModel: []

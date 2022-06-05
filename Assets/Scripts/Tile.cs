@@ -46,7 +46,6 @@ public class Tile : MonoBehaviour
 						{
 							tileMap.elementMap.Add(elm.transform.position, elm);
 						}
-						totalPointsToAdd += ((int)tilePosition.y+1) * 10;
 
 						List<Element> nei = tileMap.GetNeighboringElements(elm.transform.position);
 						foreach (Element element in nei)
@@ -59,6 +58,9 @@ public class Tile : MonoBehaviour
 
 						if (tilePosition.y > 0 && tileMap.elementMap.ContainsKey(new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)))
 						{
+							totalPointsToAdd += ((int)tilePosition.y + 1) * 60;
+							tileMap.fc.remainingTiles += (int)tilePosition.y * 1;
+							StartCoroutine(tileMap.fc.ThrowScoreParticle("+" + ((int)tilePosition.y * 2) + " Tiles"));
 							if (addToMap)
 								tileMap.fc.am.Play(2);
 							Element lower = tileMap.elementMap[new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)];
@@ -92,7 +94,7 @@ public class Tile : MonoBehaviour
 		{
 			tileMap.fc.playerScore += totalPointsToAdd;
 			tileMap.fc.scoreText.text = tileMap.fc.playerScore + "";
-			StartCoroutine(tileMap.fc.ThrowScoreParticle(totalPointsToAdd));
+			StartCoroutine(tileMap.fc.ThrowScoreParticle("+"+totalPointsToAdd));
 		}
 	}
 

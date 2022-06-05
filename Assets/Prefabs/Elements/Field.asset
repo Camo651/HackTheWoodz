@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementType: 1
   isStackable: 0
-  audioIndex: 0
+  audioIndex: 3
   StandaloneModel:
   - {fileID: 3779704231786613643, guid: 1ad6c8afd023003479834b117ca36ee2, type: 3}
+  - {fileID: 389052381659553836, guid: 5dbef96b2ee6f2c4ab11896a1ed731a2, type: 3}
   HasTopModel: []

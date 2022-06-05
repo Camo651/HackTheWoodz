@@ -7,8 +7,8 @@ public class CameraControl : MonoBehaviour
 
 
 	public Camera mainCam;
-	float lookSensitivity = 12;
-	float movementSpeed = 1;
+	float lookSensitivity = 250;
+	float movementSpeed = .5f;
 
 	void Awake()
 	{
@@ -20,7 +20,7 @@ public class CameraControl : MonoBehaviour
     {
 		if (Input.GetKey(KeyCode.LeftShift))
 		{
-			movementSpeed = 2;
+			movementSpeed = 1;
 		}
 		if (Input.GetKey(KeyCode.W))
 		{
@@ -50,8 +50,8 @@ public class CameraControl : MonoBehaviour
 		//rotation
 		if (Input.GetMouseButton(1))
 		{
-			transform.parent.localEulerAngles = (Vector3.up * (transform.parent.localEulerAngles.y + Input.GetAxis("Mouse X") * lookSensitivity));
-			transform.localEulerAngles = (Vector3.right * (transform.localEulerAngles.x + Input.GetAxis("Mouse Y") * -lookSensitivity));
+			transform.parent.localEulerAngles = (Vector3.up * (transform.parent.localEulerAngles.y + Input.GetAxis("Mouse X") * lookSensitivity * Time.fixedDeltaTime));
+			transform.localEulerAngles = (Vector3.right * (transform.localEulerAngles.x + Input.GetAxis("Mouse Y") * -lookSensitivity * Time.fixedDeltaTime));
 		}
 	}
     public GameObject Raycast()

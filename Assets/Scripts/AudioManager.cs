@@ -5,11 +5,13 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
 	public GameObject AudioSourcePrefab;
-
+	public AudioSource helpUO;
 
 	public AudioClip Rocks;
 	public AudioClip Wood;
 	public AudioClip Bell;
+	public AudioClip Leaf;
+	public AudioClip Dirt;
 	public void Play(int index)
 	{
 		switch (index)
@@ -17,6 +19,8 @@ public class AudioManager : MonoBehaviour
 			case 0:PlayAudio(Rocks);break;
 			case 1:PlayAudio(Wood);break;
 			case 2:PlayAudio(Bell);break;
+			case 3:PlayAudio(Leaf);break;
+			case 4:PlayAudio(Dirt);break;
 		}
 	}
 	public void PlayAudio(AudioClip clip)

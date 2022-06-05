@@ -16,5 +16,7 @@ public class Element : MonoBehaviour
 		CastleWall,
 		CastleTower,
 		Hut,
+		Path,
+		Windmill,
 	};
 }
