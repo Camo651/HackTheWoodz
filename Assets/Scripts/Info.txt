@@ -6,7 +6,6 @@ ToDo:
 - HUD for points and stuff
 - Audio manager for placing tiles / points etc
 - (maybe) preview rotates with player to show better how it will be placed
-- Make the ghost boxes more subtle
 - Path parts
 - Castle wall parts
 - Unique structures (windmill, well, statues, etc)

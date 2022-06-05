@@ -8,6 +8,7 @@ public class FlowControl : MonoBehaviour
 	public CameraControl cameraControl;
 	public Tile previewTile;
 	public List<List<Element.ElementType>> previewElements;
+	public Tile hoveredTile;
 	private void Start()
 	{
 		tileMap.CreateTile(Tile.TileType.Ghost, Vector3.zero, false, null);
@@ -16,13 +17,14 @@ public class FlowControl : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
+		Tile t = cameraControl.RaycastTile();
+
+		if (t)
 		{
-			//check that the player is able to place tiles
-			Tile t = cameraControl.RaycastTile();
-			if (t)
+			if (Input.GetMouseButtonDown(0))
 			{
-				if(t.tileType == Tile.TileType.Ghost && TileCanBePlaced(t))
+				//check that the player is able to place tiles
+				if (t.tileType == Tile.TileType.Ghost && TileCanBePlaced(t))
 				{
 
 					//check that it can be placed there here
@@ -32,10 +34,38 @@ public class FlowControl : MonoBehaviour
 					SetPreviewTile(GenerateElements(Random.Range(0, 100000)));
 				}
 			}
+			if(t.tileType == Tile.TileType.Ghost)
+			{
+				if (hoveredTile != t)
+				{
+					if (hoveredTile)
+						hoveredTile.transform.GetComponentInChildren<MeshRenderer>().material = tileMap.ghostNone;
+					hoveredTile = t;
+					if (TileCanBePlaced(t))
+					{
+						hoveredTile.transform.GetComponentInChildren<MeshRenderer>().material = tileMap.ghostAllow;
+					}
+					else
+					{
+						hoveredTile.transform.GetComponentInChildren<MeshRenderer>().material = tileMap.ghostDeny;
+					}
+				}
+			}
+			else if(hoveredTile)
+			{
+				hoveredTile.transform.GetComponentInChildren<MeshRenderer>().material = tileMap.ghostNone;
+				hoveredTile = null;
+			}
+		}
+		else if (hoveredTile)
+		{
+			hoveredTile.transform.GetComponentInChildren<MeshRenderer>().material = tileMap.ghostNone;
+			hoveredTile = null;
 		}
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			RotatePreviewTile();
+			hoveredTile = null;
 		}
 	}
 
@@ -74,8 +104,10 @@ public class FlowControl : MonoBehaviour
 	{
 		bool hasElements = false;
 		List<List<Element.ElementType>> elms = new List<List<Element.ElementType>>();
-		while (!hasElements)
+		int tries = 0;
+		while (!hasElements && tries < 100)
 		{
+			tries++;
 			elms = new List<List<Element.ElementType>>();
 			for (int x = 0; x < tileMap.tileDimensions.x / tileMap.elementDimensions.x; x++)
 			{
@@ -90,6 +122,7 @@ public class FlowControl : MonoBehaviour
 					}
 				}
 			}
+			seed = Random.Range(0, 100000);
 		}
 		return elms;
 	}

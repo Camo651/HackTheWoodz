@@ -291,7 +291,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-125964
+  m_Name: pb_Mesh17560
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1090,6 +1090,9 @@ MonoBehaviour:
   ghostTilePrefab: {fileID: 1098265914388593577, guid: 89ccbbcd8e617c4468fb7add6d066a1e, type: 3}
   tileDimensions: {x: 12, y: 5, z: 12}
   elementDimensions: {x: 4, y: 5, z: 4}
+  ghostAllow: {fileID: 2100000, guid: 963917dfd58d8134aa13a10e1655cc74, type: 2}
+  ghostDeny: {fileID: 2100000, guid: 006cd47c60d4d4342909472655caecff, type: 2}
+  ghostNone: {fileID: 2100000, guid: 814956316e072a843a067cf45269e3b7, type: 2}
   elementPrefabs:
   - {fileID: 11400000, guid: f0ad67504f15c9849a2a5fc9f10f5d52, type: 2}
   - {fileID: 11400000, guid: a2e2933646fcd3c46a7f25e1a454e2a0, type: 2}
@@ -1122,13 +1125,14 @@ MonoBehaviour:
   tileMap: {fileID: 1064226340}
   cameraControl: {fileID: 963194229}
   previewTile: {fileID: 5202783023979601864}
+  hoveredTile: {fileID: 0}
 --- !u!43 &1097143754
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-407112
+  m_Name: pb_Mesh17474
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
