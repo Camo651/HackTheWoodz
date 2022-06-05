@@ -29,10 +29,12 @@ public class Tile : MonoBehaviour
 					ElementPrefab model = GetCorrectModelForElement(e[x][z]);
 					if(model != null)
 					{
-						Element elm = Instantiate(model.StandaloneModel, transform.GetChild(0)).GetComponent<Element>();
+						int typeIdex = Random.Range(0, model.StandaloneModel.Length);
+						Element elm = Instantiate(model.StandaloneModel[typeIdex], transform.GetChild(0)).GetComponent<Element>();
 						elm.transform.localPosition = new Vector3(x * tileMap.elementDimensions.x, 0, -z * tileMap.elementDimensions.z);
 						elm.transform.name = elm.transform.position + "";
 						elm.parentTile = this;
+						elm.typeIndex = typeIdex;
 						childedElements[x].Add(elm);
 						if (addToMap)
 							tileMap.elementMap.Add(elm.transform.position, elm);
@@ -43,13 +45,14 @@ public class Tile : MonoBehaviour
 							Vector3 lowPos = lower.transform.position;
 							Tile lowTile = lower.parentTile;
 							tileMap.elementMap.Remove(lowPos);
+							int ti = lower.typeIndex;
 							Destroy(lower.gameObject);
-							Element newLow = Instantiate(model.HasTopModel, lowTile.transform.GetChild(0)).GetComponent<Element>();
+							Element newLow = Instantiate(model.HasTopModel[ti], lowTile.transform.GetChild(0)).GetComponent<Element>();
 							newLow.transform.localPosition = new Vector3(x * tileMap.elementDimensions.x, 0, -z * tileMap.elementDimensions.z);
 							newLow.transform.name = newLow.transform.position + "";
 							newLow.parentTile = lowTile;
 							lowTile.childedElements[x][z] = newLow;
-							tileMap.elementMap[elm.transform.position] = newLow;
+							tileMap.elementMap[newLow.transform.position] = newLow;
 
 						}
 					}

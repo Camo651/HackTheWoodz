@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: StudioApt
   m_EditorClassIdentifier: 
   elementType: 1
-  StandaloneModel: {fileID: 4352422725075786382, guid: c85605bf9c759ab4fbc5983125619ed4, type: 3}
-  HasTopModel: {fileID: 4912129364569959267, guid: 33ac7df757a7c194199bbd143d28d2e4, type: 3}
+  StandaloneModel:
+  - {fileID: 4352422725075786382, guid: c85605bf9c759ab4fbc5983125619ed4, type: 3}
+  HasTopModel:
+  - {fileID: 4912129364569959267, guid: 33ac7df757a7c194199bbd143d28d2e4, type: 3}

@@ -1,7 +1,13 @@
 ToDo:
-- Camera Control Script (Thomas)
-- Tilemap system (Matt)
-- Tile class
-XXX- Tiles can be placed and destroyed (Matt)
-- Tiles can have elements put on them
-- Element class
+- Implement trees
+- Point system that scores up when player places a tile that matches neighboring tiles and extra points for the higher the building
+- Add variability to the elementPrefab so class
+- Intro screen
+- HUD for points and stuff
+- Audio manager for placing tiles / points etc
+- (maybe) preview rotates with player to show better how it will be placed
+- Make the ghost boxes more subtle
+- Path parts
+- Castle wall parts
+- Unique structures (windmill, well, statues, etc)
+-

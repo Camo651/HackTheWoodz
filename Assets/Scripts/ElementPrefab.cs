@@ -7,6 +7,6 @@ public class ElementPrefab : ScriptableObject
 {
 	public Element.ElementType elementType;
 	[Space(10)]
-	public GameObject StandaloneModel;
-	public GameObject HasTopModel;
+	public GameObject[] StandaloneModel;
+	public GameObject[] HasTopModel;
 }

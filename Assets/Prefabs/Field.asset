@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Field
   m_EditorClassIdentifier: 
   elementType: 3
-  StandaloneModel: {fileID: 6976062275972406197, guid: 5bf17694b47311d4098a000100fcf6ec, type: 3}
-  HasTopModel: {fileID: 0}
+  StandaloneModel:
+  - {fileID: 6976062275972406197, guid: 5bf17694b47311d4098a000100fcf6ec, type: 3}
+  HasTopModel: []

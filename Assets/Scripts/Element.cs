@@ -6,6 +6,7 @@ public class Element : MonoBehaviour
 {
 	public Tile parentTile;
 	public ElementType elementType;
+	public int typeIndex;
 	public enum ElementType
 	{
 		None,
