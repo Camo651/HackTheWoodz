@@ -16,15 +16,26 @@ public class FlowControl : MonoBehaviour
 	public AudioManager am;
 	public GameObject scoreParticlePrefab;
 	public GameObject scoreParticleHolder;
+	public GameObject pauseMenu;
+	public bool gameIsPaused;
 
 	private void Start()
 	{
 		tileMap.CreateTile(Tile.TileType.Ghost, Vector3.zero, false, null);
 		SetPreviewTile(GenerateElements(Random.Range(0,100000)));
+		gameIsPaused = false;
 	}
 
 	private void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			TogglePause();
+		}
+		if (gameIsPaused)
+			return;
+
+
 		Tile t = cameraControl.RaycastTile();
 
 		if (t)
@@ -75,7 +86,21 @@ public class FlowControl : MonoBehaviour
 			hoveredTile = null;
 		}
 
+
+
 		previewTile.transform.localEulerAngles = Vector3.up * (360f-cameraControl.transform.localEulerAngles.y);
+	}
+
+	public void TogglePause()
+	{
+		gameIsPaused = !gameIsPaused;
+		pauseMenu.SetActive(gameIsPaused);
+		Time.timeScale = gameIsPaused ? 0 : 1;
+
+	}
+	public void QuitToMenu()
+	{
+		UnityEngine.SceneManagement.SceneManager.LoadScene(0);
 	}
 
 	public bool TileCanBePlaced(Tile ghost)
