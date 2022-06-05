@@ -28,8 +28,8 @@ public class AudioManager : MonoBehaviour
 
 	IEnumerator Clipper(AudioSource a)
 	{
-		a.pitch = a.pitch + (Random.value > .5 ? 1 : -1) * Random.value * .1f;
-		yield return new WaitForSeconds(Random.value*.8f);
+		a.pitch = a.pitch + (Random.value > .5 ? 1 : -1) * Random.value * .2f;
+		yield return new WaitForSeconds(Random.value*.3f);
 		a.Play();
 		while (a.isPlaying)
 		{

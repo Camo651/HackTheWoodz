@@ -1247,6 +1247,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &833093849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 833093850}
+  m_Layer: 0
+  m_Name: CameraHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &833093850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833093849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 30.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 963194228}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &922363151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,14 +1492,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.4259613, y: -0, z: -0, w: 0.90474135}
-  m_LocalPosition: {x: 0, y: 27, z: 4}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2130519181}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 833093850}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50.423, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1615,6 +1646,7 @@ MonoBehaviour:
   ghostNone: {fileID: 2100000, guid: 814956316e072a843a067cf45269e3b7, type: 2}
   elementPrefabs:
   - {fileID: 11400000, guid: f0ad67504f15c9849a2a5fc9f10f5d52, type: 2}
+  - {fileID: 11400000, guid: 803607d97ab8b924b9eda0ebb3acd9a2, type: 2}
   - {fileID: 11400000, guid: a2e2933646fcd3c46a7f25e1a454e2a0, type: 2}
 --- !u!4 &1064226341
 Transform:
