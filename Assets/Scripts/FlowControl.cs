@@ -70,8 +70,12 @@ public class FlowControl : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			RotatePreviewTile();
+			if(hoveredTile)
+				hoveredTile.transform.GetComponentInChildren<MeshRenderer>().material = tileMap.ghostNone;
 			hoveredTile = null;
 		}
+
+		previewTile.transform.localEulerAngles = Vector3.up * (360f-cameraControl.transform.localEulerAngles.y);
 	}
 
 	public bool TileCanBePlaced(Tile ghost)

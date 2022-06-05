@@ -1,8 +1,5 @@
 ToDo:
 - Implement trees
-- Point system that scores up when player places a tile that matches neighboring tiles and extra points for the higher the building
-- HUD for points and stuff
-- (maybe) preview rotates with player to show better how it will be placed
 - Path parts
 - Castle wall parts
 - Unique structures (windmill, well, statues, etc)
