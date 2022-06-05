@@ -92,7 +92,7 @@ public class FlowControl : MonoBehaviour
 				if (previewElements[x][z] != Element.ElementType.None)
 				{
 					containsElements = true;
-					if(baseElements[x][z] == null || baseElements[x][z].elementType != Element.ElementType.Building)
+					if(baseElements[x][z] == null || baseElements[x][z].elementType != Element.ElementType.Building || (baseElements[x][z].elementType == Element.ElementType.Building && previewElements[x][z] != Element.ElementType.Building))
 					{
 						allElementsMatch = false;
 					}
