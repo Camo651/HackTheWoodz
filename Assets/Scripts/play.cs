@@ -10,10 +10,13 @@ public class play : MonoBehaviour
     public GameObject exitButton;
     public GameObject instructions;
     public GameObject backToMenu;
-    public GameObject controlsbutton; 
+    public GameObject controlsbutton;
+    public GameObject audioSource; 
     public void playGame()
     {
+        DontDestroyOnLoad(audioSource);
         SceneManager.LoadScene(1);
+       
     }
     public void exit()
     {
@@ -39,4 +42,5 @@ public class play : MonoBehaviour
 
         controlsbutton.SetActive(true);
     }
+
 }
