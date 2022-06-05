@@ -72,16 +72,22 @@ public class FlowControl : MonoBehaviour
 
 	public List<List<Element.ElementType>> GenerateElements(int seed)
 	{
+		bool hasElements = false;
 		List<List<Element.ElementType>> elms = new List<List<Element.ElementType>>();
-		for (int x = 0; x < tileMap.tileDimensions.x / tileMap.elementDimensions.x; x++)
+		while (!hasElements)
 		{
-			elms.Add(new List<Element.ElementType>());
-			for (int z = 0; z < tileMap.tileDimensions.z / tileMap.elementDimensions.z; z++)
+			elms = new List<List<Element.ElementType>>();
+			for (int x = 0; x < tileMap.tileDimensions.x / tileMap.elementDimensions.x; x++)
 			{
-				elms[x].Add(Element.ElementType.None);
-				if (Mathf.PerlinNoise((seed * 5.01f) + x, (seed * 5.01f) + z) * 10f > 6f)
+				elms.Add(new List<Element.ElementType>());
+				for (int z = 0; z < tileMap.tileDimensions.z / tileMap.elementDimensions.z; z++)
 				{
-					elms[x][z] = Random.value < .2f ? Element.ElementType.Field : Element.ElementType.Building;
+					elms[x].Add(Element.ElementType.None);
+					if (Mathf.PerlinNoise((seed * 5.01f) + x, (seed * 5.01f) + z) * 10f > 6f)
+					{
+						hasElements = true;
+						elms[x][z] = Random.value < .2f ? Element.ElementType.Field : Element.ElementType.Building;
+					}
 				}
 			}
 		}
