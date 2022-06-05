@@ -19,6 +19,7 @@ public class Tile : MonoBehaviour
 
 	public void GenerateElementsOnTile(List<List<Element.ElementType>> e, bool addToMap)
 	{
+		int totalPointsToAdd = 10;
 		for (int x = 0; x < tileMap.tileDimensions.x/tileMap.elementDimensions.x; x++)
 		{
 			childedElements.Add(new List<Element>());
@@ -38,8 +39,9 @@ public class Tile : MonoBehaviour
 						childedElements[x].Add(elm);
 						if (addToMap)
 							tileMap.elementMap.Add(elm.transform.position, elm);
+						totalPointsToAdd += ((int)tilePosition.y+1) * 10;
 
-						if(tilePosition.y > 0 && tileMap.elementMap.ContainsKey(new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)))
+						if (tilePosition.y > 0 && tileMap.elementMap.ContainsKey(new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)))
 						{
 							Element lower = tileMap.elementMap[new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)];
 							Vector3 lowPos = lower.transform.position;
@@ -53,7 +55,6 @@ public class Tile : MonoBehaviour
 							newLow.parentTile = lowTile;
 							lowTile.childedElements[x][z] = newLow;
 							tileMap.elementMap[newLow.transform.position] = newLow;
-
 						}
 					}
 				}
@@ -63,6 +64,8 @@ public class Tile : MonoBehaviour
 				}
 			}
 		}
+		tileMap.fc.playerScore += totalPointsToAdd;
+		tileMap.fc.scoreText.text = tileMap.fc.playerScore + "";
 	}
 
 	public ElementPrefab GetCorrectModelForElement(Element.ElementType e)
