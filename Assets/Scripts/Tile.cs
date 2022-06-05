@@ -30,6 +30,8 @@ public class Tile : MonoBehaviour
 					ElementPrefab model = GetCorrectModelForElement(e[x][z]);
 					if(model != null)
 					{
+						if(addToMap)
+							tileMap.fc.am.Play(model.audioIndex);
 						int typeIdex = Random.Range(0, model.StandaloneModel.Length);
 						Element elm = Instantiate(model.StandaloneModel[typeIdex], transform.GetChild(0)).GetComponent<Element>();
 						elm.transform.localPosition = new Vector3(x * tileMap.elementDimensions.x, 0, -z * tileMap.elementDimensions.z);
@@ -43,6 +45,8 @@ public class Tile : MonoBehaviour
 
 						if (tilePosition.y > 0 && tileMap.elementMap.ContainsKey(new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)))
 						{
+							if (addToMap)
+								tileMap.fc.am.Play(2);
 							Element lower = tileMap.elementMap[new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)];
 							Vector3 lowPos = lower.transform.position;
 							Tile lowTile = lower.parentTile;

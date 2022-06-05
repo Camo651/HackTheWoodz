@@ -13,6 +13,7 @@ public class FlowControl : MonoBehaviour
 	public int playerScore;
 	public int remainingTiles;
 	public TextMeshProUGUI scoreText, tilesText;
+	public AudioManager am;
 
 	private void Start()
 	{
