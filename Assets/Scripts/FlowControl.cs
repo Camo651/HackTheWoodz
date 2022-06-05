@@ -14,6 +14,8 @@ public class FlowControl : MonoBehaviour
 	public int remainingTiles;
 	public TextMeshProUGUI scoreText, tilesText;
 	public AudioManager am;
+	public GameObject scoreParticlePrefab;
+	public GameObject scoreParticleHolder;
 
 	private void Start()
 	{
@@ -138,5 +140,20 @@ public class FlowControl : MonoBehaviour
 		remap.Add(new List<Element.ElementType>() { previewElements[2][2], previewElements[1][2], previewElements[0][2] });
 		previewElements = remap;
 		SetPreviewTile(previewElements);
+	}
+
+	public IEnumerator ThrowScoreParticle(int points)
+	{
+		Vector3 startPos = new Vector3(0,-100);
+		Vector3 endPos = new Vector3(0,80);
+		TextMeshProUGUI part = Instantiate(scoreParticlePrefab, scoreParticleHolder.transform).GetComponent<TextMeshProUGUI>();
+		part.text = "+" + points;
+		for (int i = 0; i < 700; i++)
+		{
+			yield return null;
+			part.rectTransform.anchoredPosition = Vector2.Lerp(startPos, endPos, i / 700f);
+			part.color = Color.Lerp(Color.white, Color.clear, i / 700f);
+		}
+		Destroy(part.gameObject);
 	}
 }

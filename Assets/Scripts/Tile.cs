@@ -43,6 +43,15 @@ public class Tile : MonoBehaviour
 							tileMap.elementMap.Add(elm.transform.position, elm);
 						totalPointsToAdd += ((int)tilePosition.y+1) * 10;
 
+						List<Element> nei = tileMap.GetNeighboringElements(elm.transform.position);
+						foreach (Element element in nei)
+						{
+							if(element != null && element.elementType == elm.elementType)
+							{
+								totalPointsToAdd += 10;
+							}
+						}
+
 						if (tilePosition.y > 0 && tileMap.elementMap.ContainsKey(new Vector3(elm.transform.position.x, tilePosition.y - tileMap.tileDimensions.y, elm.transform.position.z)))
 						{
 							if (addToMap)
@@ -68,8 +77,12 @@ public class Tile : MonoBehaviour
 				}
 			}
 		}
-		tileMap.fc.playerScore += totalPointsToAdd;
-		tileMap.fc.scoreText.text = tileMap.fc.playerScore + "";
+		if (addToMap)
+		{
+			tileMap.fc.playerScore += totalPointsToAdd;
+			tileMap.fc.scoreText.text = tileMap.fc.playerScore + "";
+			StartCoroutine(tileMap.fc.ThrowScoreParticle(totalPointsToAdd));
+		}
 	}
 
 	public ElementPrefab GetCorrectModelForElement(Element.ElementType e)

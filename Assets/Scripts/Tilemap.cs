@@ -13,7 +13,6 @@ public class Tilemap : MonoBehaviour
 	public Vector3 elementDimensions;
 
 	public Material ghostAllow, ghostDeny, ghostNone;
-
 	public List<ElementPrefab> elementPrefabs;
 
 	public Tile GetTileInMap(Vector3 pos)

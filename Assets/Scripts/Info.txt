@@ -1,9 +1,7 @@
 ToDo:
 - Implement trees
 - Point system that scores up when player places a tile that matches neighboring tiles and extra points for the higher the building
-- Intro screen
 - HUD for points and stuff
-- Audio manager for placing tiles / points etc
 - (maybe) preview rotates with player to show better how it will be placed
 - Path parts
 - Castle wall parts
